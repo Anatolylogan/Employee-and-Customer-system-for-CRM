@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Employee_and_Customer_system_for_CRM
 {
-    abstract class Person
+    public abstract class Person
     {
-        public abstract string Name { get; set; }
-        public abstract int Age { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
         public abstract string GetDetails();
-        public abstract string CalculateDiscount();
+        public abstract double CalculateDiscount();
         public override string ToString()
         {
             return $"Person:{Name} Age:{Age} ";
