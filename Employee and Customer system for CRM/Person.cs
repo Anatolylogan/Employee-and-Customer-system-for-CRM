@@ -15,7 +15,7 @@ namespace Employee_and_Customer_system_for_CRM
         public abstract double CalculateDiscount();
         public override string ToString()
         {
-            return $"Person:{Name} Age:{Age} ";
+            return $"Person: Person {Name} Age {Age} ";
         }
     }
 }

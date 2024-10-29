@@ -11,17 +11,19 @@ namespace Employee_and_Customer_system_for_CRM
         public string Position { get; set; }
         public override string GetDetails()
         {
-            return $"Person {Name}, Age {Age}, Position {Position}";
+            return $"Employee: Person {Name}, Age {Age}, Position {Position}";
         }
         public override double CalculateDiscount()
         {
-            if (Age < 25)
-                return 0.10;
-            else if (Age < 50)
-                return 0.20;
-            else
-                return 0.30;
+            double discount = 0;
+            {
+                if (Age < 25)
+                    return 0.10;
+                else if (Age < 50)
+                    return 0.20;
+                else
+                    return 0.30;
+            }
         }
-
     }
 }
