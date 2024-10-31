@@ -9,7 +9,12 @@ namespace Employee_and_Customer_system_for_CRM
 {
     public class VIPClient : Client
     {
-        public virtual int VIPLevel { get; set; } = 1;
+       private  int vipLevel = 1;
+        public virtual int VIPLevel
+        {
+            get => vipLevel;
+            set => vipLevel = value;
+        }
         protected new string GetDetails()
         {
             return $"VIPClient: Person {Name} Age {Age} PurchaseAmount {PurchaseAmount} VIPLevel {VIPLevel}";

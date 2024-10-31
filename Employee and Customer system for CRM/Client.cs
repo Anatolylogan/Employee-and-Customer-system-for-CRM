@@ -8,7 +8,12 @@ namespace Employee_and_Customer_system_for_CRM
 {
     public class Client : Person
     {
-        public double PurchaseAmount { get; set; }
+        private double purchaseAmount; 
+        public double PurchaseAmount
+        {
+            get => purchaseAmount;
+            set => purchaseAmount = value;
+        }
         public override string GetDetails()
         {
             return $"Client: Person {Name} Age {Age} PurchaseAmount {PurchaseAmount}";

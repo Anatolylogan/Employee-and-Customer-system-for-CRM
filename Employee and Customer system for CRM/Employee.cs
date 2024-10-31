@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,12 @@ namespace Employee_and_Customer_system_for_CRM
 {
     public class Employee : Person
     {
-        public string Position { get; set; }
+        private string position;
+        public string Position
+        {
+            get => position;
+            set => position = value;
+        }
         public override string GetDetails()
         {
             return $"Employee: Person {Name}, Age {Age}, Position {Position}";
