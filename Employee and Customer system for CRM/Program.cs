@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Employee_and_Customer_system_for_CRM
 {
@@ -7,12 +8,14 @@ namespace Employee_and_Customer_system_for_CRM
         static void Main(string[] args)
         {
             var personRepo = new Repository<Person>();
-            personRepo.Add(new Employee { Name = "Tolya", Age = 22, Position = "Admin" });
-            personRepo.Add(new Client { Name = "Alex", Age = 44, PurchaseAmount = 2300 });
+            personRepo.Add(new Employee("Tolya", 22, "Admin"));
+            var client = new Client("Alex", 44, 2300);
+            client.AddPurchace(1200);
+            personRepo.Add(client);
 
             var vipRepo = new VIPRepository<VIPClient>();
-            vipRepo.Add(new VIPClient { Name = "Andrey", Age = 19, PurchaseAmount = 1000, VIPLevel = 1 });
-            vipRepo.Add(new VIPClient { Name = "Danil", Age = 26, PurchaseAmount = 200, VIPLevel = 3 });
+            vipRepo.Add(new VIPClient("Andrey", 19, 1000, 1));
+            vipRepo.Add(new VIPClient("Danil", 26, 200, 3));
 
             Console.WriteLine("Persons:");
             foreach (var person in personRepo.GetAll())

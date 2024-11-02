@@ -9,11 +9,16 @@ namespace Employee_and_Customer_system_for_CRM
 {
     public class VIPClient : Client
     {
-       private  int vipLevel = 1;
+        private int vipLevel;
         public virtual int VIPLevel
         {
             get => vipLevel;
             set => vipLevel = value;
+        }
+        public VIPClient(string name, int age, double initialPurchaseAmount, int vipLevel = 1)
+            : base(name, age, initialPurchaseAmount)
+        {
+            this.vipLevel = vipLevel;
         }
         protected new string GetDetails()
         {

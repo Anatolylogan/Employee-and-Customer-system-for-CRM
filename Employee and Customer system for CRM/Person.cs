@@ -8,18 +8,16 @@ namespace Employee_and_Customer_system_for_CRM
 {
     public abstract class Person
     {
-        private string name;
-        private int age;
-        public string Name
+        private readonly string name;
+        private readonly int age;
+        public string Name => name;
+        public int Age => age;
+        protected Person(string name , int age) 
         {
-            get => name;
-            set => name = value;
+            this.name = name;
+            this.age = age;
         }
-        public int Age
-        {
-            get => age;
-            set => age = value;
-        }
+
         public abstract string GetDetails();
         public abstract double CalculateDiscount();
         public override string ToString()

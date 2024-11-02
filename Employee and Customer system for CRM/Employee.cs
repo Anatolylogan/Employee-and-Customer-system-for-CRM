@@ -15,6 +15,11 @@ namespace Employee_and_Customer_system_for_CRM
             get => position;
             set => position = value;
         }
+        public Employee(string name, int age, string position)
+            : base(name, age)
+        {
+            this.position = position;
+        }
         public override string GetDetails()
         {
             return $"Employee: Person {Name}, Age {Age}, Position {Position}";

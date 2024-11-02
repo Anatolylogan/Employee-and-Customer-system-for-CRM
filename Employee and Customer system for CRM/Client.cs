@@ -6,13 +6,34 @@ using System.Threading.Tasks;
 
 namespace Employee_and_Customer_system_for_CRM
 {
+    public enum ClientStatus
+    {
+        NoPurchases,
+        HasPurchases
+    }
     public class Client : Person
     {
-        private double purchaseAmount; 
-        public double PurchaseAmount
+        private double purchaseAmount;
+        public double PurchaseAmount => purchaseAmount;
+        public ClientStatus Status
         {
-            get => purchaseAmount;
-            set => purchaseAmount = value;
+            get
+            {
+                return purchaseAmount > 0 ? ClientStatus.HasPurchases : ClientStatus.NoPurchases;
+            }
+        }
+
+        public Client(string name, int age, double initialPurshaseAmount = 0)
+             : base(name, age)
+        {
+            purchaseAmount = initialPurshaseAmount;
+        }
+        public void AddPurchace(double amount)
+        {
+            if (amount > 0)
+            {
+                purchaseAmount += amount;
+            }
         }
         public override string GetDetails()
         {
